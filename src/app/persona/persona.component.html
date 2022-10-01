@@ -1,0 +1,121 @@
+<div class="formulario m-5">
+
+
+
+    <form class="row g-3" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+        <div class="col-md-6">
+          <label for="inputEmail4" class="form-label text-muted">Nombre</label>
+          <input type="text" class="form-control" id="name" formControlName="name">
+        </div>
+        <div class="col-md-6">
+            <label for="inputEmail4" class="form-label text-muted">Apellido</label>
+            <input type="text" class="form-control" id="inputApellido" formControlName="fullName">
+          </div>
+        <div class="col-3">
+          <label for="inputPassword4" class="form-label text-muted">Edad</label>
+          <input type="number" class="form-control" id="inputEdad" formControlName="edad">
+        </div>
+      
+        <div class="col-md-3">
+          <label for="inputAddress2" class="form-label text-muted">Sexo </label>
+          <input type="text" class="form-control" id="inputSexo" formControlName="sexo">
+        </div>
+        <div class="col-3">
+            <label for="inputAddress" class="form-label text-muted">Peso</label>
+            <input type="number" class="form-control" id="inputPeso" formControlName="peso">
+          </div>
+        <div class="col-md-3">
+          <label for="inputCity" class="form-label text-muted">Altura</label>
+          <input type="number" class="form-control" id="inputAltura" formControlName="altura">
+        </div>
+        
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary">Submit!</button>
+        </div>
+      </form>
+
+
+
+
+
+  <div class="p-5">
+
+    
+
+
+
+    <!--  -->
+  <div *ngIf="checkSubmitted() == true && checkIMC() == 'normal' " class="alert alert-primary" role="alert">
+  <p>
+  Estas en un peso Normal! 
+  </p>
+  </div>
+
+  <div *ngIf="checkSubmitted() == true &&checkIMC() == 'bajo'" class="alert alert-danger" role="alert">
+    <p>
+    Estas en bajo de Peso! 
+    </p>
+
+  </div>
+
+  <div *ngIf="checkSubmitted() == true && checkIMC() == 'sobre' " class="alert alert-warning" role="alert">
+    <p>
+    Estas en sobre Peso! 
+    </p>
+  </div>
+
+
+  <div *ngIf="checkSubmitted() == true && checkEdad() == true" class="alert alert-primary" role="alert">
+    <p>
+    Eres Mayor de Edad!
+    </p>
+  </div>
+  <div *ngIf="checkSubmitted() == true && checkEdad() == false" class="alert alert-danger" role="alert">
+    <p>
+    Eres Menor de Edad!
+    </p>
+  </div>
+
+  </div>
+
+
+
+ 
+
+ 
+
+
+  <div class="m-5">
+<h1>Informacion:</h1>
+    <div *ngIf="checkSubmitted() == true " class="alert alert-primary" role="alert">
+      <p>
+ Nombre: {{sendInformation().nombre}} <br>
+ Apellidos: {{sendInformation().Apellidos}} <br>
+ Edad: {{sendInformation().edad}} <br>
+ NSS: {{sendInformation().NSS}} <br>
+ Sexo: {{sendInformation().sexo}} <br>
+ Altura: {{sendInformation().altura}} <br>
+      </p>
+    </div>
+
+
+
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
